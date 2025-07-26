@@ -1,0 +1,8 @@
+exports('getCharacterName', Framework.getCharacterName)
+exports('hasItem', Framework.hasItem)
+exports('takeItem', Framework.takeItem)
+exports('giveItem', Framework.giveItem)
+exports('hasMoney', Framework.hasMoney)
+exports('takeMoney', Framework.takeMoney)
+exports('giveMoney', Framework.giveMoney)
+exports('showNotification', Framework.showNotification)
