@@ -2,7 +2,16 @@ if Config.Framework ~= Config.FrameworkId.VRP1 then
     return
 end
 
-local vRP = loadVrp1()
+local frameworkFolder = Config.FrameworkFolder.VRP1
+local function init()
+	load(LoadResourceFile(frameworkFolder, 'lib/utils.lua'))()
+	local Proxy = module(frameworkFolder, "lib/Proxy")
+	local Tunnel = module(frameworkFolder, "lib/Tunnel")
+	local vRPclient = Tunnel.getInterface("vRP", GetCurrentResourceName())
+	return Proxy.getInterface("vRP")
+end
+
+local vRP = init()
 
 Framework = {}
 
@@ -47,12 +56,4 @@ end
 
 function Framework.showNotification(playerId, message)
     TriggerClientEvent(EVENTS.SHOW_NOTIFICATION, playerId, message)
-end
-
---
-function loadVrp1()
-	local Proxy = module(Config.FrameworkFolder.VRP1, "lib/Proxy")
-	local Tunnel = module(Config.FrameworkFolder.VRP1, "lib/Tunnel")
-	local vRPclient = Tunnel.getInterface("vRP", GetCurrentResourceName())
-	return Proxy.getInterface("vRP")
 end
