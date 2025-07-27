@@ -2,7 +2,7 @@ if Config.Framework ~= Config.FrameworkId.VRP1 then
     return
 end
 
-local frameworkFolder = Config.FrameworkFolder.VRP1
+local frameworkFolder = 'vrp'
 local function init()
 	load(LoadResourceFile(frameworkFolder, 'lib/utils.lua'))()
 	local Proxy = module(frameworkFolder, "lib/Proxy")

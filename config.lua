@@ -23,9 +23,6 @@ Config.FrameworkFolder = {
     ESX = 'es_extended',
     QB = 'qb-core',
     QBOX = 'qbx_core',
-    VRP_DUNKO = 'vrp',
-    VRP1 = 'vrp',
-    VRP2 = 'vrp',
 }
 --[[
     In case you've renamed a resource folder with the framework - change it here accordingly.

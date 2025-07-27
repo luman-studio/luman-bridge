@@ -2,7 +2,7 @@ if Config.Framework ~= Config.FrameworkId.VRP_DUNKO then
     return
 end
 
-local frameworkFolder = Config.FrameworkFolder.VRP_DUNKO
+local frameworkFolder = 'vrp'
 local function init()
     load(LoadResourceFile(frameworkFolder, 'lib/utils.lua'))()
     local content = LoadResourceFile(GetCurrentResourceName(), 'client/frameworks/modules/vrp_dunko_proxy.lua')

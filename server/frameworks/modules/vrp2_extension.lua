@@ -1,13 +1,13 @@
 local function registerExtension(extensionName)
     local extension = class(extensionName, vRP.Extension)
 
-    function extension:__construct()
-        vRP.Extension.__construct(self)
-    end
-
     extension.event = {}
     extension.tunnel = {}
     extension.proxy = {}
+
+    function extension:__construct()
+        vRP.Extension.__construct(self)
+    end
 
     function extension.proxy:getCharacterName(playerId)
         local user = vRP.users_by_source[tonumber(playerId)]
@@ -55,7 +55,5 @@ local function registerExtension(extensionName)
     end
 
     vRP:registerExtension(extension)
-
-    print(('[luman-bridge]: Extension %s loaded.'):format(extensionName))
 end
 registerExtension('LumanStudio')

@@ -2,7 +2,7 @@ if Config.Framework ~= Config.FrameworkId.VRP2 then
     return
 end
 
-local frameworkFolder = Config.FrameworkFolder.VRP2
+local frameworkFolder = 'vrp'
 local function init()
 	load(LoadResourceFile(frameworkFolder, 'lib/utils.lua'))()
 	local Proxy = module(frameworkFolder, 'lib/Proxy')
@@ -15,5 +15,5 @@ local vRP2 = init()
 Framework = {}
 
 function Framework.showNotification(message)
-	vRP2.notify(message)
+    vRP2.notify(message)
 end
