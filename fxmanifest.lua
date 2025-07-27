@@ -26,7 +26,5 @@ files {
 }
 
 escrow_ignore {
-    'client/*.*',
-    'server/*.*',
-    '*.*',
+    '**/*.lua',
 }
