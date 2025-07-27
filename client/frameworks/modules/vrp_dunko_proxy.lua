@@ -1,3 +1,5 @@
+-- https://github.com/vRP-Official-Developers/dunko_vrp/blob/additonals/vrp_barrier/lib/Proxy.lua
+
 -- PROXY CLIENT-SIDE VERSION (https://github.com/ImagicTheCat/vRP)
 -- Proxy interface system, used to add/call functions between resources
 Proxy = {}
@@ -43,6 +45,4 @@ function Proxy.getInterface(name)
   return r
 end
 
--- END PROXY CLIENT-SIDE VERSION
-
-return Proxy.getInterface("vRP")
+return Proxy

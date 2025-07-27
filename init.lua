@@ -6,6 +6,7 @@ Config.FrameworkId = {
     ESX = 'esx',
     QB = 'qb',
     QBOX = 'qbox',
+    VRP_DUNKO = 'vrp_dunko',
     VRP1 = 'vrp1',
     VRP2 = 'vrp2',
     STANDALONE = 'standalone',
@@ -24,6 +25,10 @@ end
 
 function selectQbox()
     Config.Framework = Config.FrameworkId.QBOX
+end
+
+function selectVrpDunko()
+    Config.Framework = Config.FrameworkId.VRP_DUNKO
 end
 
 function selectVrp1()
@@ -56,6 +61,8 @@ elseif Config.Framework == Config.FrameworkId.QB then
     selectQb()
 elseif Config.Framework == Config.FrameworkId.QBOX then
     selectQbox()
+elseif Config.Framework == Config.FrameworkId.VRP_DUNKO then
+    selectVrpDunko()
 elseif Config.Framework == Config.FrameworkId.VRP1 then
     selectVrp1()
 elseif Config.Framework == Config.FrameworkId.VRP2 then
