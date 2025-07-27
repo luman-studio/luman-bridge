@@ -32,7 +32,7 @@ end
 
 function Framework.hasMoney(playerId, amount)
 	local userId = vRP.getUserId({playerId})
-	return vRP.getWalletAmount({userId}) >= amount
+	return vRP.getMoney({userId}) >= amount
 end
 
 function Framework.takeMoney(playerId, amount)
