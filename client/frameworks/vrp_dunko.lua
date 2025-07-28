@@ -14,10 +14,6 @@ local vRP = init()
 
 Framework = {}
 
-function Framework.showNotification(message)
+function Framework.notify(message)
     vRP.notify({message})
 end
-
-RegisterNetEvent(EVENTS.SHOW_NOTIFICATION, function(message)
-    Framework.showNotification(message)
-end)

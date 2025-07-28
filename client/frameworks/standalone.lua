@@ -4,12 +4,8 @@ end
 
 Framework = {}
 
-function Framework.showNotification(message)
+function Framework.notify(message)
     SetNotificationTextEntry('STRING')
     AddTextComponentString(message)
     DrawNotification(false, false)
 end
-
-RegisterNetEvent(EVENTS.SHOW_NOTIFICATION, function(message)
-    Framework.showNotification(message)
-end)

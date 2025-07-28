@@ -14,52 +14,41 @@ local vRP = init()
 Framework = {}
 
 function Framework.getCharacterName(playerId)
-	playerId = tonumber(playerId)
 	local userId = vRP.getUserId({playerId})
 	local identityPromise = promise.new()
 	vRP.getUserIdentity({userId, function(identity)
-		identityPromise:resolve(identity.firstname .. ' ' .. identity.name)
+		identityPromise:resolve(identity)
 	end})
-	return Citizen.Await(identityPromise)
+	local identity = Citizen.Await(identityPromise)
+	return identity.firstname, identity.name
 end
 
-function Framework.hasItem(playerId, name, amount)
-	playerId = tonumber(playerId)
+function Framework.getItemAmount(playerId, name)
 	local userId = vRP.getUserId({playerId})
-	return vRP.getInventoryItemAmount({userId, name}) >= amount
+	return vRP.getInventoryItemAmount({userId, name})
 end
 
-function Framework.takeItem(playerId, name, amount)
-	playerId = tonumber(playerId)
+function Framework.removeItem(playerId, name, amount)
 	local userId = vRP.getUserId({playerId})
 	vRP.tryGetInventoryItem({userId, name, amount, true})
 end
 
-function Framework.giveItem(playerId, name, amount)
-	playerId = tonumber(playerId)
+function Framework.addItem(playerId, name, amount)
 	local userId = vRP.getUserId({playerId})
 	vRP.giveInventoryItem({userId, name, amount, true})
 end
 
-function Framework.hasMoney(playerId, amount)
-	playerId = tonumber(playerId)
+function Framework.getMoneyAmount(playerId)
 	local userId = vRP.getUserId({playerId})
-	return vRP.getMoney({userId}) >= amount
+	return vRP.getMoney({userId})
 end
 
-function Framework.takeMoney(playerId, amount)
-	playerId = tonumber(playerId)
+function Framework.removeMoney(playerId, amount)
 	local userId = vRP.getUserId({playerId})
 	vRP.tryPayment({userId, amount})
 end
 
-function Framework.giveMoney(playerId, amount)
-	playerId = tonumber(playerId)
+function Framework.addMoney(playerId, amount)
 	local userId = vRP.getUserId({playerId})
 	vRP.giveMoney({userId, amount})
-end
-
-function Framework.showNotification(playerId, message)
-	playerId = tonumber(playerId)
-    TriggerClientEvent(EVENTS.SHOW_NOTIFICATION, playerId, message)
 end

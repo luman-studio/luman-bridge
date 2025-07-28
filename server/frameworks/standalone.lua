@@ -4,34 +4,30 @@ end
 
 Framework = {}
 
-function Framework.hasItem(playerId, name, amount)
-    return true
-end
-
-function Framework.takeItem(playerId, name, amount)
-
-end
-
-function Framework.giveItem(playerId, name, amount)
-
-end
-
-function Framework.hasMoney(playerId, amount)
-    return true
-end
-
-function Framework.takeMoney(playerId, amount)
-
-end
-
-function Framework.giveMoney(playerId, amount)
-
-end
-
 function Framework.getCharacterName(playerId)
-    return GetPlayerName(playerId)
+    return GetPlayerName(playerId), ''
 end
 
-function Framework.showNotification(playerId, message)
-    TriggerClientEvent(EVENTS.SHOW_NOTIFICATION, playerId, message)
+function Framework.getItemAmount(playerId, name)
+    return 0
+end
+
+function Framework.removeItem(playerId, name, amount)
+
+end
+
+function Framework.addItem(playerId, name, amount)
+
+end
+
+function Framework.getMoneyAmount(playerId)
+    return 0
+end
+
+function Framework.removeMoney(playerId, amount)
+
+end
+
+function Framework.addMoney(playerId, amount)
+
 end

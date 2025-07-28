@@ -5,10 +5,11 @@ version '1.0.0'
 lua54 'yes'
 
 shared_scripts {
-    'shared/events.lua',
-
     'config.lua',
     'init.lua',
+
+    'shared/events.lua',
+    'shared/shared_exports.lua',
 }
 
 client_scripts {

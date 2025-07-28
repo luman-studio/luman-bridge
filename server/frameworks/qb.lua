@@ -7,41 +7,37 @@ local QBCore = exports[Config.FrameworkFolder.QB]:GetCoreObject()
 Framework = {}
 
 function Framework.getCharacterName(playerId)
-    local Ply = QBCore.Functions.GetPlayer(winnerId)
-    return Ply.PlayerData.charinfo.firstname .. ' ' .. Ply.PlayerData.charinfo.lastname
+    local Ply = QBCore.Functions.GetPlayer(playerId)
+    return Ply.PlayerData.charinfo.firstname, Ply.PlayerData.charinfo.lastname
 end
 
-function Framework.hasItem(playerId, name, amount)
+function Framework.getItemAmount(playerId, name)
     local Ply = QBCore.Functions.GetPlayer(playerId)
     local itemData = Ply.Functions.GetItemByName(name)
-    return itemData ~= nil and itemData.amount >= amount
+    return itemData?.amount or 0
 end
 
-function Framework.takeItem(playerId, name, amount)
+function Framework.removeItem(playerId, name, amount)
     local Ply = QBCore.Functions.GetPlayer(playerId)
     Ply.Functions.RemoveItem(name, amount)
 end
 
-function Framework.giveItem(playerId, name, amount)
+function Framework.addItem(playerId, name, amount)
     local Ply = QBCore.Functions.GetPlayer(playerId)
     Ply.Functions.AddItem(name, amount)
 end
 
-function Framework.hasMoney(playerId, amount)
+function Framework.getMoneyAmount(playerId)
     local Ply = QBCore.Functions.GetPlayer(playerId)
-    return Ply.PlayerData.money['cash'] >= amount
+    return Ply.PlayerData.money['cash']
 end
 
-function Framework.takeMoney(playerId, amount)
+function Framework.removeMoney(playerId, amount)
     local Ply = QBCore.Functions.GetPlayer(playerId)
     Ply.Functions.RemoveMoney('cash', amount, 'luman-bridge')
 end
 
-function Framework.giveMoney(playerId, amount)
+function Framework.addMoney(playerId, amount)
     local Ply = QBCore.Functions.GetPlayer(playerId)
     Ply.Functions.AddMoney('cash', amount, 'luman-bridge')
-end
-
-function Framework.showNotification(playerId, message)
-    TriggerClientEvent(EVENTS.SHOW_NOTIFICATION, playerId, message)
 end

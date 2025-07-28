@@ -9,49 +9,44 @@ local function registerExtension(extensionName)
         vRP.Extension.__construct(self)
     end
 
-    function extension.proxy:getCharacterName(playerId)
-        local user = vRP.users_by_source[tonumber(playerId)]
-        local identity = vRP.EXT.Identity:getIdentity(user.cid)
-        return identity.firstname .. ' ' .. identity.name
+    function extension.proxy:getIdentity(playerId)
+        local user = vRP.users_by_source[playerId]
+        return vRP.EXT.Identity:getIdentity(user.cid)
     end
 
     function extension.proxy:registerItem(item, name, description)
         vRP.EXT.Inventory:defineItem(item, name, description, nil, 0.05)
     end
 
-    function extension.proxy:hasItem(playerId, item, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
-        return user:getItemAmount(item) >= amount
+    function extension.proxy:getItemAmount(playerId, item)
+        local user = vRP.users_by_source[playerId]
+        return user:getItemAmount(item)
     end
 
-    function extension.proxy:takeItem(playerId, item, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
+    function extension.proxy:tryTakeItem(playerId, item, amount)
+        local user = vRP.users_by_source[playerId]
         return user:tryTakeItem(item, amount)
     end
 
-    function extension.proxy:giveItem(playerId, item, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
+    function extension.proxy:tryGiveItem(playerId, item, amount)
+        local user = vRP.users_by_source[playerId]
         return user:tryGiveItem(item, amount)
     end
 
-    function extension.proxy:hasMoney(playerId, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
-        return user:getWallet() >= amount
+    function extension.proxy:getWallet(playerId, amount)
+        local user = vRP.users_by_source[playerId]
+        return user:getWallet()
     end
 
-    function extension.proxy:giveMoney(playerId, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
+    function extension.proxy:giveWallet(playerId, amount)
+        local user = vRP.users_by_source[playerId]
         user:giveWallet(amount)
         return true
     end
 
-    function extension.proxy:takeMoney(playerId, amount)
-        local user = vRP.users_by_source[tonumber(playerId)]
+    function extension.proxy:tryPayment(playerId, amount)
+        local user = vRP.users_by_source[playerId]
         return user:tryPayment(amount)
-    end
-
-    function extension.proxy:showNotification(playerId, message)
-        return vRP.EXT.Base.remote._notify(tonumber(playerId), message)
     end
 
     vRP:registerExtension(extension)

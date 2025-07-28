@@ -47,10 +47,13 @@ end
 if Config.Framework == 'auto' then
     if GetResourceState(Config.FrameworkFolder.ESX) == 'started' then
         selectEsx()
-    elseif GetResourceState(Config.FrameworkFolder.QB) == 'started' then
-        selectQb()
     elseif GetResourceState(Config.FrameworkFolder.QBOX) == 'started' then
         selectQbox()
+    elseif GetResourceState(Config.FrameworkFolder.QB) == 'started' then
+        selectQb()
+    elseif GetResourceState('vrp') == 'started' then
+        print(('^1[luman-bridge]:^0 Specify the framework in luman-bridge/config.lua'):format(Config.Framework))
+        selectStandalone()
     else
         selectStandalone()
     end
@@ -69,4 +72,10 @@ elseif Config.Framework == Config.FrameworkId.VRP2 then
     selectVrp2()
 elseif Config.Framework == Config.FrameworkId.STANDALONE then
     selectStandalone()
+end
+
+if Config.Framework == 'auto' then
+    print(('^1[luman-bridge]:^0 No framework selected^0'):format(Config.Framework))
+else
+    print(('^2[luman-bridge]:^0 Selected framework ^6%s^0'):format(Config.Framework))
 end

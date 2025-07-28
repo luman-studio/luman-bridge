@@ -14,35 +14,31 @@ local vRP2 = init()
 
 Framework = {}
 
-function Framework.hasItem(playerId, extensionName, amount)
-	local hasItem = vRP2.hasItem(playerId, extensionName, amount)
-    return hasItem
-end
-
-function Framework.takeItem(playerId, extensionName, amount)
-    return vRP2.takeItem(playerId, extensionName, amount)
-end
-
-function Framework.giveItem(playerId, extensionName, amount)
-    return vRP2.giveItem(playerId, extensionName, amount)
-end
-
-function Framework.hasMoney(playerId, amount)
-	return vRP2.hasMoney(playerId, amount)
-end
-
-function Framework.takeMoney(playerId, amount)
-	return vRP2.takeMoney(playerId, amount)
-end
-
-function Framework.giveMoney(playerId, amount)
-	return vRP2.giveMoney(playerId, amount)
-end
-
-function Framework.showNotification(playerId, message)
-    return vRP2.showNotification(playerId, message)
-end
-
 function Framework.getCharacterName(playerId)
-    return vRP2.getCharacterName(playerId)
+    local identity = vRP2.getIdentity(playerId)
+	return identity.firstname, identity.name
+end
+
+function Framework.getItemAmount(playerId, extensionName)
+	return vRP2.getItemAmount(playerId, extensionName)
+end
+
+function Framework.removeItem(playerId, extensionName, amount)
+    return vRP2.tryTakeItem(playerId, extensionName, amount)
+end
+
+function Framework.addItem(playerId, extensionName, amount)
+    return vRP2.tryGiveItem(playerId, extensionName, amount)
+end
+
+function Framework.getMoneyAmount(playerId)
+	return vRP2.getWallet(playerId)
+end
+
+function Framework.removeMoney(playerId, amount)
+	return vRP2.tryPayment(playerId, amount)
+end
+
+function Framework.addMoney(playerId, amount)
+	return vRP2.giveWallet(playerId, amount)
 end

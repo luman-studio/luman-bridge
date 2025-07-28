@@ -14,6 +14,6 @@ local vRP2 = init()
 
 Framework = {}
 
-function Framework.showNotification(message)
+function Framework.notify(message)
     vRP2.notify(message)
 end
