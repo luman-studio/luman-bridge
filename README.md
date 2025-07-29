@@ -1,6 +1,6 @@
 # Luman Bridge
 
-A bridge for FiveM frameworks such ESX, QBCore, QBox and vRP.
+A bridge for FiveM frameworks such ESX, QBCore, Qbox and vRP.
 
 
 ## Usage
