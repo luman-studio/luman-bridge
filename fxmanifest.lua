@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 games { 'gta5' }
 author 'Luman Studio'
-version '1.0.1'
+version '1.0.2'
 lua54 'yes'
 provide 'luman-bridge'
 
@@ -16,6 +16,7 @@ shared_scripts {
 client_scripts {
     'client/frameworks/*.lua',
     'client/c_exports.lua',
+    'client/c_events.lua',
 }
 
 server_scripts {

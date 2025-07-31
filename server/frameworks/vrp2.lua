@@ -42,3 +42,7 @@ end
 function Framework.addMoney(playerId, amount)
 	return vRP2.giveWallet(playerId, amount)
 end
+
+function Framework.getJob(playerId)
+	return vRP2.getGroupByType(playerId, 'job')
+end

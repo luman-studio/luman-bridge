@@ -52,3 +52,7 @@ function Framework.addMoney(playerId, amount)
 	local userId = vRP.getUserId({playerId})
 	vRP.giveMoney({userId, amount})
 end
+
+function Framework.getJob(playerId)
+	return vRP.getUserGroupByType({playerId, 'job'})
+end

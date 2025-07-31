@@ -36,6 +36,9 @@ local success = bridge:removeItem(playerId, 'lockpick', 1)
 local currentMoney = bridge:getMoneyAmount(playerId)
 local success = bridge:addMoney(playerId, 1000)
 local success = bridge:removeMoney(playerId, 500)
+
+-- Job
+local currentJob = bridge:getJob(playerId)
 ```
 
 ### Client Functions
@@ -108,3 +111,10 @@ Removes money from the player.
 - **playerId**: `number` - The player's server ID
 - **amount**: `number` - Amount to remove (must be positive)
 - **Returns**: `boolean` - Success status
+
+### Job
+
+#### `getJob(playerId)`
+Gets the player's current job.
+- **playerId**: `number` - The player's server ID
+- **Returns**: `string` - Job

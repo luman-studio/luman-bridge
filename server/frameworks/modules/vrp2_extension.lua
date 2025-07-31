@@ -49,6 +49,11 @@ local function registerExtension(extensionName)
         return user:tryPayment(amount)
     end
 
+    function extension.proxy:getGroupByType(playerId, amount)
+        local user = vRP.users_by_source[playerId]
+		return user:getGroupByType('job')
+    end
+
     vRP:registerExtension(extension)
 end
 registerExtension('LumanStudio')

@@ -13,11 +13,11 @@ function Framework.getItemAmount(playerId, name)
 end
 
 function Framework.removeItem(playerId, name, amount)
-
+    return false
 end
 
 function Framework.addItem(playerId, name, amount)
-
+    return false
 end
 
 function Framework.getMoneyAmount(playerId)
@@ -25,9 +25,13 @@ function Framework.getMoneyAmount(playerId)
 end
 
 function Framework.removeMoney(playerId, amount)
-
+    return false
 end
 
 function Framework.addMoney(playerId, amount)
+    return false
+end
 
+function Framework.getJob(playerId)
+    return ''
 end

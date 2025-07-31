@@ -46,3 +46,8 @@ function Framework.addMoney(playerId, amount)
     local xPlayer = ESX.GetPlayerFromId(playerId)
     xPlayer.addMoney(amount)
 end
+
+function Framework.getJob(playerId)
+    local xPlayer = ESX.GetPlayerFromId(playerId)
+    return xPlayer.getJob().name
+end

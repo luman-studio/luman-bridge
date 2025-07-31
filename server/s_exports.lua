@@ -26,6 +26,9 @@ end)
 exports('addItem', function(playerId, itemName, amount)
     playerId = tonumber(playerId)
     amount = tonumber(amount) or 1
+    if amount <= 0 then
+        return false
+    end
     local expectedAmount = Framework.getItemAmount(playerId, itemName) + amount
     Framework.addItem(playerId, itemName, amount)
     return Framework.getItemAmount(playerId, itemName) == expectedAmount
@@ -34,6 +37,9 @@ end)
 exports('removeItem', function(playerId, itemName, amount)
     playerId = tonumber(playerId)
     amount = tonumber(amount) or 1
+    if amount <= 0 then
+        return false
+    end
     if Framework.getItemAmount(playerId, itemName) < amount then
         return false
     end
@@ -73,4 +79,8 @@ exports('removeMoney', function(playerId, amount)
     local expectedAmount = Framework.getMoneyAmount(playerId) - amount
     Framework.removeMoney(playerId, amount)
     return Framework.getMoneyAmount(playerId) == expectedAmount
+end)
+
+exports('getJob', function(playerId)
+    return Framework.getJob(playerId) or ''
 end)

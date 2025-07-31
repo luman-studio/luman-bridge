@@ -41,3 +41,8 @@ function Framework.addMoney(playerId, amount)
     local Ply = QBOXCore:GetPlayer(playerId)
     Ply.Functions.AddMoney('cash', amount, 'luman-bridge')
 end
+
+function Framework.getJob(playerId)
+    local Ply = QBOXCore:GetPlayer(playerId)
+    return Ply.PlayerData.job.name
+end
