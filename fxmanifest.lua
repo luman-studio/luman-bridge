@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 games { 'gta5' }
 author 'Luman Studio'
-version '1.0.2'
+version '1.0.3'
 lua54 'yes'
 provide 'luman-bridge'
 

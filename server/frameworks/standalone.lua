@@ -9,27 +9,27 @@ function Framework.getCharacterName(playerId)
 end
 
 function Framework.getItemAmount(playerId, name)
-    return 0
+    return math.huge
 end
 
 function Framework.removeItem(playerId, name, amount)
-    return false
+    return true
 end
 
 function Framework.addItem(playerId, name, amount)
-    return false
+    return true
 end
 
 function Framework.getMoneyAmount(playerId)
-    return 0
+    return math.huge
 end
 
 function Framework.removeMoney(playerId, amount)
-    return false
+    return true
 end
 
 function Framework.addMoney(playerId, amount)
-    return false
+    return true
 end
 
 function Framework.getJob(playerId)
