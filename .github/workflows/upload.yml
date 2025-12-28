@@ -1,0 +1,18 @@
+name: Upload to CFX Portal
+
+on:
+  push:
+    branches: [master, main]
+
+jobs:
+    upload:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        
+        - name: Upload to CFX Portal
+          uses: luman-studio/cfx-portal-upload@main
+          with:
+            cookie: ${{ secrets.FORUM_COOKIE }}
+            openSource: |
+              asset_name: 'luman-bridge'
